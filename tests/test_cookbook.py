@@ -1,7 +1,8 @@
 from src.cookbook import cookbook
 
-def test_store_recipe():
-    url = 'https://duckduckgo.com/'
+
+def test_download_recipe():
+    url = 'http://example.com/'
     website = cookbook.download_recipe(url)
 
     assert len(website) > 0
