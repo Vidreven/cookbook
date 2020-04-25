@@ -1,6 +1,11 @@
-# cookbook
+# cookbook v0.1.1
 
 Store, read, edit, comment and search your favorite recipes.
+
+## Test
+```bash
+$ python -m pytest tests/
+```
 
 ## Run
 
