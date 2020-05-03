@@ -1,4 +1,4 @@
-# cookbook v0.1.3
+# cookbook v0.2.0
 
 Store, read, edit, comment and search your favorite recipes.
 
@@ -12,7 +12,5 @@ $ python -m pytest tests/
 ```bash
 $ pip install -r requirements.txt
 $ pip install -e .
-$ python
->>> from cookbook.cookbook import download_recipe
->>> download_recipe('http://example.com')
+$ cookbook -s http://example.com -o Example
 ```

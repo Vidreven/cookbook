@@ -1,8 +1,20 @@
 from src.cookbook import cookbook
+from click.testing import CliRunner
 
 
 def test_download_recipe():
-    url = 'http://example.com/'
-    website = cookbook.download_recipe(url)
+    runner = CliRunner()
+    url = "http://example.com/"
+    filename = 'Example'
 
-    assert len(website) > 0
+    result = runner.invoke(cookbook.download_recipe, ['-s', url, '-o', filename])
+    
+    assert result.exit_code == 0
+    assert result.output == 'Example saved\n'
+
+    filepath = f"/home/vedran/Documents/{filename}.html"
+
+    with open(filepath) as f:
+        content = f.read()
+
+    assert len(content) > 0
