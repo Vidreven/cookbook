@@ -4,7 +4,7 @@ import click
 
 @click.command()
 @click.option("-s", "--save", "url", help="URL of the recipe to save")
-@click.option("-o", "--output", "saved_name", help="Save recipe under this name")
+@click.option("-n", "--name", "saved_name", help="Save recipe under this name")
 def download_recipe(url, saved_name):
     response = urllib.request.urlopen(url)
     recipe = response.read()

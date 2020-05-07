@@ -7,7 +7,7 @@ def test_download_recipe():
     url = "http://example.com/"
     filename = 'Example'
 
-    result = runner.invoke(cookbook.download_recipe, ['-s', url, '-o', filename])
+    result = runner.invoke(cookbook.download_recipe, ['-s', url, '-n', filename])
     
     assert result.exit_code == 0
     assert result.output == 'Example saved\n'

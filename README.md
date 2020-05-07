@@ -1,4 +1,4 @@
-# cookbook v0.2.0
+# cookbook v0.2.1
 
 Store, read, edit, comment and search your favorite recipes.
 
