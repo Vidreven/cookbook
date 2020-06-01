@@ -18,3 +18,12 @@ def test_download_recipe():
         content = f.read()
 
     assert len(content) > 0
+
+
+    def test_list_recipes():
+        runner = CliRunner()
+        result = runner.invoke(cookbook.list_recipes)
+
+        #captured_out = result.output.split('\n')
+
+        assert result.exit_code == 0
