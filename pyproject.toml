@@ -1,0 +1,5 @@
+[tool.towncrier]
+    package = "cookbook"
+    package_dir = "src"
+    filename = "CHANGELOG.md"
+    directory = ".changelog.d"
