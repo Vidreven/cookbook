@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="cookbook",
-    version="0.3.3",
+    version="0.4.0",
     author="Vidreven",
     description="Store, read, edit, comment and search your favorite recipes.",
     package_dir={"": "src"},

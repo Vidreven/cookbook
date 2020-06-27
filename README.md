@@ -16,12 +16,12 @@ $ pip install -e .
 ### Save a recipe
 
 ```bash
-$ cookbook download_recipe -s http://example.com -n Example
+$ cookbook save -u http://example.com -n Example
 ```
 
 ### List recipes
 ```bash
-$ cookbook list_recipes
+$ cookbook browse
 ```
 
 ## Contributing

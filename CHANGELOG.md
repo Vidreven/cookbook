@@ -10,6 +10,21 @@ Do **NOT** add changelog entries here! This changelog is managed by [towncrier](
 
 .. towncrier release notes start
 
+Cookbook 0.4.0 (2020-06-27)
+===========================
+
+Features
+--------
+
+- Changed download_recipe to save.
+
+  Changed list_recipes to browse.
+
+  Added view command for opening downloaded recipes in firefox.
+
+  Tests delete downloaded pages. (#002)
+
+
 Cookbook 0.3.3 (2020-06-27)
 ===========================
 
