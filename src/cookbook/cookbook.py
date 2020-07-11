@@ -1,6 +1,8 @@
 import urllib.request
 import click
-import os
+
+from . import Session
+from . import models as db
 
 
 PATH = "/home/vedran/Documents/"
@@ -13,29 +15,38 @@ def cookbook():
 
 @cookbook.command()
 @click.option("-u", "--url", help="URL of the recipe to save")
-@click.option("-n", "--name", "saved_name", help="Save recipe under this name")
-def save(url, saved_name):
+@click.option("-n", "--name", "recipe_name", help="Save recipe under this name")
+def save(url, recipe_name):
     response = urllib.request.urlopen(url)
     recipe = response.read()
-    store_recipe(recipe, saved_name)
+    recipe_decoded = recipe.decode("utf-8")
+    store_recipe(recipe_decoded, recipe_name)
 
 
 @cookbook.command()
 def browse():
-    contents = os.listdir(PATH)
+    session = Session()
+    contents = db.fetch_all(session)
+    session.close()
 
     for content in contents:
-        click.echo(content)
+        click.echo(content[0])
 
 
 @cookbook.command()
-@click.argument("filename")
-def view(filename):
-    os.system(f"firefox {PATH}{filename}")
+@click.argument("recipe_name")
+def view(recipe_name):
+    # os.system(f"firefox {PATH}{filename}")
+    session = Session()
+    recipe = db.fetch(session, recipe_name)
+    session.close()
+
+    click.echo(recipe)
 
 
 def store_recipe(content, saved_name):
-    filepath = f"{PATH}{saved_name}.html"
-    with open(filepath, "w") as recipe:
-        recipe.write(content.decode("utf-8"))
-        click.echo(f"{saved_name} saved")
+    session = Session()
+    db.store(session, saved_name, content)
+    session.close()
+
+    click.echo(f"{saved_name} saved")

@@ -1,0 +1,29 @@
+"""create recipe table
+
+Revision ID: b9665c8af212
+Revises:
+Create Date: 2020-07-09 19:00:00.254549
+
+"""
+from alembic import op
+import sqlalchemy as sa
+
+
+# revision identifiers, used by Alembic.
+revision = "b9665c8af212"
+down_revision = None
+branch_labels = None
+depends_on = None
+
+
+def upgrade():
+    op.create_table(
+        "recipe",
+        sa.Column("id", sa.Integer, primary_key=True),
+        sa.Column("name", sa.VARCHAR, nullable=False),
+        sa.Column("recipe", sa.Text, nullable=False),
+    )
+
+
+def downgrade():
+    op.drop_table("recipe")

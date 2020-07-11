@@ -10,6 +10,23 @@ Do **NOT** add changelog entries here! This changelog is managed by [towncrier](
 
 .. towncrier release notes start
 
+Cookbook 0.5.0 (2020-07-11)
+===========================
+
+Features
+--------
+
+- Added storing recipes to Postgres database instead of disk.
+
+  Added database migrations.
+
+  Added environment variables.
+
+  Added configuration file.
+
+  Added database creation to README. (#003)
+
+
 Cookbook 0.4.0 (2020-06-27)
 ===========================
 
