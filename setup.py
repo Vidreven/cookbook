@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="cookbook",
-    version="0.5.0",
+    version="1.0.0",
     author="Vidreven",
     description="Store, read, edit, comment and search your favorite recipes.",
     package_dir={"": "src"},
@@ -14,6 +14,7 @@ setup(
         "psycopg2>=2.8.5",
         "SQLAlchemy>=1.3.18",
         "alembic>=1.4.2",
+        "requests>=2.23.0",
     ],
     extras_require={"dev": ["pytest>=5.4.1", "pre-commit>=2.5.1", "towncrier>=19.2.0"]},
     entry_points="""

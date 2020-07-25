@@ -2,6 +2,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, VARCHAR, Text
 from sqlalchemy.exc import StatementError
 
+import sys
+
 
 Base = declarative_base()
 
@@ -27,7 +29,7 @@ def store(session, recipe_name, recipe_text):
         session.add(recipe)
         session.commit()
     except StatementError as se:
-        print(se)
+        sys.stderr.write(se)
         session.rollback()
 
 
@@ -36,15 +38,15 @@ def fetch(session, recipe_name):
         recipe = session.query(Recipe.recipe).filter_by(name=recipe_name)
         return recipe[0][0]
     except StatementError as se:
-        print(se)
+        sys.stderr.write(se)
 
 
 def fetch_all(session):
     try:
-        recipe = session.query(Recipe.name).all()
-        return recipe
+        recipes = session.query(Recipe.name).all()
+        return recipes
     except StatementError as se:
-        print(se)
+        sys.stderr.write(se)
 
 
 def delete(session, recipe_name):
@@ -54,5 +56,13 @@ def delete(session, recipe_name):
             session.delete(recipe)
         session.commit()
     except StatementError as se:
-        print(se)
+        sys.stderr.write(se)
         session.rollback()
+
+
+def find(session, name_part):
+    try:
+        recipes = session.query(Recipe.name).filter(Recipe.name.like(f"%{name_part}%"))
+        return recipes
+    except StatementError as se:
+        sys.stderr.write(se)

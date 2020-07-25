@@ -10,6 +10,23 @@ Do **NOT** add changelog entries here! This changelog is managed by [towncrier](
 
 .. towncrier release notes start
 
+Cookbook 1.0.0. (2020-07-25)
+============================
+
+Features
+--------
+
+- Added deleting and finding recipes.
+
+  Added tests.
+
+  Improved README.
+
+  Added docstrings.
+
+  Replaced urlib with requests (#004)
+
+
 Cookbook 0.5.0 (2020-07-11)
 ===========================
 
