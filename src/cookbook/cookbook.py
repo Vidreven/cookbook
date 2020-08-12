@@ -8,6 +8,7 @@ from . import models as db
 
 @click.group()
 def cookbook():
+    # Just for grouping commands
     pass
 
 

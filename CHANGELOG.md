@@ -10,6 +10,15 @@ Do **NOT** add changelog entries here! This changelog is managed by [towncrier](
 
 .. towncrier release notes start
 
+Cookbook 1.0.1 (2020-08-12)
+===========================
+
+Features
+--------
+
+- Applied Sonar lint (#005)
+
+
 Cookbook 1.0.0. (2020-07-25)
 ============================
 

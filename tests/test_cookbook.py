@@ -1,10 +1,11 @@
 from src.cookbook import cookbook
 from click.testing import CliRunner
 
+url = "http://example.com/"
+
 
 def test_save():
     runner = CliRunner()
-    url = "http://example.com/"
     recipe_name = "Example"
 
     result = runner.invoke(cookbook.save, ["-u", url, "-n", recipe_name])
@@ -16,7 +17,6 @@ def test_save():
 
 
 def test_browse():
-    url = "http://example.com/"
     recipe_name = "Example"
 
     runner = CliRunner()
@@ -29,7 +29,6 @@ def test_browse():
 
 
 def test_view():
-    url = "http://example.com/"
     recipe_name = "Example"
 
     runner = CliRunner()
@@ -41,7 +40,6 @@ def test_view():
 
 
 def test_find():
-    url = "http://example.com/"
     recipe_name = "Example"
     name_part = "am"
 
